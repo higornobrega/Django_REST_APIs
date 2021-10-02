@@ -1,8 +1,15 @@
 from django.http import JsonResponse
+from django.shortcuts import get_object_or_404
+from .models import Aluno, Curso
 
 def alunos(request):
+    aluno = Aluno.objects.all()
+    curso = Curso.objects.all()
     if request.method == 'GET':
-        aluno = {'id':1,'nome':'Higor Stefany'}
+
+        dados = {'id':aluno,
+        'nome': curso,
+        }
         
-    return JsonResponse(aluno)
+    return JsonResponse(dados)
         
